@@ -1,0 +1,14 @@
+Elements
+#004643 background
+#abd1c6 paragraph
+#001e1d  button text
+#fffffe  headline
+#f9bc60  button
+
+
+Illustration
+#001e1d stroke
+#f9bc60 highligiht
+#e16162 tertlary
+#e8e4e6 main    
+#abd1c6 secondary
