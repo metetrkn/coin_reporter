@@ -1,0 +1,80 @@
+# general plan
+To create a project that generates reports on LibreOffice Calc using data scraped from CoinMarketCap, you can follow these general steps:
+
+    Define the objectives and scope of the project:
+        Identify the specific data points you want to scrape from CoinMarketCap (e.g., market cap, volume, price, etc.).
+        Determine the desired format and content of the reports in LibreOffice Calc.
+
+    Data Scraping:
+        Choose a programming language and relevant libraries for web scraping (e.g., Python with BeautifulSoup and requests).
+        Study CoinMarketCap's API documentation to understand the available endpoints and rate limits.
+        Write a script to fetch the required data from CoinMarketCap's API and parse the JSON responses.
+
+    Data Processing:
+        Clean and preprocess the scraped data as needed (e.g., removing unwanted characters, converting data types).
+        Perform any calculations or transformations required for your report (e.g., calculating percentage changes, grouping data by categories).
+
+    Export Data to LibreOffice Calc:
+        Choose a suitable library for working with LibreOffice Calc files (e.g., Python with pyexcel_ods or uno).
+        Write a script to create a new LibreOffice Calc file (in ODS format) or update an existing one with the processed data.
+        Format the Calc file as needed (e.g., applying cell formatting, creating tables, charts, or pivot tables).
+
+    Automation and Scheduling (optional):
+        Automate the entire process using a task scheduler (e.g., cron jobs in Linux or Task Scheduler in Windows) to run your scripts periodically and generate up-to-date reports.
+
+    Documentation and Testing:
+        Write clear and concise documentation for your project, explaining its purpose, functionality, and any dependencies.
+        Test your project thoroughly to ensure it's working as expected and fix any bugs or issues that may arise.
+
+    Deployment:
+        Deploy your project to a server or cloud platform if you want it to run automatically and generate reports without manual intervention.
+
+Following this general plan, you should be able to create a project that scrapes data from CoinMarketCap and generates informative reports in LibreOffice Calc.
+
+
+####################################################################################################################################################################################################################################
+# coinmarketcap api base url 
+https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=200&cryptocurrency_type=all&sort=market_cap&aux=tags,platform,max_supply,circulating_supply,total_supply,market_cap_by_total_supply,volume_24h_reported,volume_7d,volume_7d_reported,volume_30d,volume_30d_reported,is_market_cap_included_in_calc
+# headers
+X-CMC_PRO_API_KEY  a3252982-8864-4c59-8cce-cc12106c2782
+Accept             application/json
+limit		   200 # for listing latest 1 credit, can change based on get function
+sort	           -market_cap # listing in descinding order
+
+####################################################################################################################################################################################################################################
+
+# data fields
+id: A unique identifier for the cryptocurrency.
+
+name: The name of the cryptocurrency.
+
+symbol: The symbol used to represent the cryptocurrency in exchanges.
+
+slug: A URL-friendly version of the name.
+
+num_market_pairs: The number of market pairs the cryptocurrency is traded on.
+
+date_added: The date when the cryptocurrency was added to the CoinMarketCap platform.
+
+max_supply: The maximum number of coins that will ever exist for the cryptocurrency.
+
+circulating_supply: The number of coins that are currently in circulation.
+
+total_supply: The total number of coins that currently exist for the cryptocurrency.
+
+platform: The blockchain platform that the cryptocurrency is built on.
+
+cmc_rank: The cryptocurrency's ranking on CoinMarketCap based on market capitalization.
+
+last_updated: The time when the data was last updated on CoinMarketCap.
+
+quote: An object containing information about the cryptocurrency's market data, including:
+
+price: The price of the cryptocurrency in the specified currency.
+volume_24h: The 24-hour trading volume of the cryptocurrency in the specified currency.
+percent_change_1h: The percentage change in the price of the cryptocurrency over the last 1 hour.
+percent_change_24h: The percentage change in the price of the cryptocurrency over the last 24 hours.
+percent_change_7d: The percentage change in the price of the cryptocurrency over the last 7 days.
+market_cap: The market capitalization of the cryptocurrency in the specified currency.
+
+
