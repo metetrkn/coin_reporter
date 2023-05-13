@@ -7,9 +7,7 @@ localContext = uno.getComponentContext()
 resolver = localContext.ServiceManager.createInstanceWithContext("com.sun.star.bridge.UnoUrlResolver", localContext)
 context = resolver.resolve("uno:socket,host=localhost,port=2002;urp;StarOffice.ComponentContext")
 desktop = context.ServiceManager.createInstanceWithContext("com.sun.star.frame.Desktop", context)
-"""
 
-"""
 # Replace "/path/to/your/file.csv" with the actual path to your CSV file
 file_path = "./output.csv"
 
@@ -31,29 +29,23 @@ file.close()
 
 # Get the current document
 model = desktop.getCurrentComponent()
-
-
-"""
-
 # Create a new sheet
 sheets = model.getSheets()
-
-
-new_sheet = sheets.insertNewByName("output", sheets.getCount())
+sheet = sheets.getByName("Sheet1")
+model.insertSheet(sheets.getCount())
 
 # Insert the data into the sheet
 for i in range(len(csv_data)):
     for j in range(len(csv_data[i])):
-        cell = new_sheet.getCellByPosition(j, i)
+        cell = sheet.getCellByPosition(j, i)
         cell.setValue(float(csv_data[i][j]))
 
 # Save the document
 props = PropertyValue()
 props.Name = "FilterName"
 props.Value = "calc8"
+
 model.storeToURL("file:///./output.ods", tuple([props]))
 
 # Close the document
 model.close(True)
-
-"""

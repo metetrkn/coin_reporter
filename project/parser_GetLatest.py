@@ -7,7 +7,8 @@ with open('./get_latest.json') as f:
     data = json.load(f)
 
 # Create a CSV file
-with open('./output2.csv', 'w', newline='') as f:
+with open('./output.csv', 'w', newline='') as f:
+
     writer = csv.writer(f)
 
     # defining global ID list to extract id's of curruncies listed in Getting Latest request
@@ -20,6 +21,7 @@ with open('./output2.csv', 'w', newline='') as f:
 
     # Write the header row
     writer.writerow(['', '', '', '', '','', '', '','', '','','', '', '', '','', ''])
+
                     # 'Last 7 Days' add if you can find related data
 
     # Loop through each item in the 'data' array
@@ -47,6 +49,7 @@ with open('./output2.csv', 'w', newline='') as f:
 
         # Write the data to the CSV file
         writer.writerow(['', id, timestamp, name, symbol, price, market_cap, market_cap_dom,
+
                          circ_supply, is_infinite, volume_24, percent_change_1h, per_change_24h,
                            per_change_7d, per_change_30d, per_change_60d, per_change_90d])
                          #open_value, low_day, high_day, close_value, last_7_days
