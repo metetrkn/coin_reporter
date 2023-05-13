@@ -10,5 +10,4 @@ data = pe.get_sheet(file_name='/home/mete/yazilim/projects/project/output2.csv',
 # Create a pyexcel sheet and populate it with the data
 sheet = pe.Sheet(data)
 
-# Save the sheet as a LibreOffice Calc file
 sheet.save_as('/home/mete/yazilim/projects/project/data.ods')
